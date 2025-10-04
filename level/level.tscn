@@ -1,0 +1,73 @@
+[gd_scene load_steps=8 format=3 uid="uid://oqy6kc74nsj3"]
+
+[ext_resource type="Texture2D" uid="uid://boackia7wdlok" path="res://assets/background.png" id="1_7lnir"]
+[ext_resource type="PackedScene" uid="uid://briabims4m8cq" path="res://player/player.tscn" id="2_5gx2l"]
+[ext_resource type="PackedScene" uid="uid://qohmltlq8dj2" path="res://items/gem.tscn" id="3_qohg2"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qohg2"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vkbyq"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ktfr2"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_44x8d"]
+
+[node name="Level" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("1_7lnir")
+centered = false
+
+[node name="Player" parent="." instance=ExtResource("2_5gx2l")]
+position = Vector2(366, 339)
+
+[node name="GemsList" type="Node" parent="."]
+
+[node name="Gem1" parent="GemsList" instance=ExtResource("3_qohg2")]
+position = Vector2(585, 311)
+
+[node name="Gem2" parent="GemsList" instance=ExtResource("3_qohg2")]
+position = Vector2(559, 310)
+
+[node name="Gem3" parent="GemsList" instance=ExtResource("3_qohg2")]
+position = Vector2(534, 308)
+
+[node name="Gem4" parent="GemsList" instance=ExtResource("3_qohg2")]
+position = Vector2(530, 333)
+
+[node name="Gem5" parent="GemsList" instance=ExtResource("3_qohg2")]
+position = Vector2(556, 335)
+
+[node name="Gem6" parent="GemsList" instance=ExtResource("3_qohg2")]
+position = Vector2(584, 338)
+
+[node name="Gem7" parent="GemsList" instance=ExtResource("3_qohg2")]
+position = Vector2(555, 360)
+
+[node name="Gem8" parent="GemsList" instance=ExtResource("3_qohg2")]
+position = Vector2(560, 277)
+
+[node name="RightBoundary" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightBoundary"]
+position = Vector2(1152, 0)
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_qohg2")
+
+[node name="LeftBoundary" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftBoundary"]
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_vkbyq")
+
+[node name="TopBoundary" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopBoundary"]
+position = Vector2(0, 648)
+shape = SubResource("WorldBoundaryShape2D_ktfr2")
+
+[node name="BottomBoundary" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomBoundary"]
+rotation = 3.1415927
+shape = SubResource("WorldBoundaryShape2D_44x8d")

@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://qohmltlq8dj2"]
+
+[ext_resource type="Script" uid="uid://dp4uq5ic1ipu7" path="res://items/gem.gd" id="1_7gg8i"]
+[ext_resource type="Texture2D" uid="uid://balu32f58tfkh" path="res://assets/items/gem.png" id="1_7ih8j"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7gg8i"]
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7ih8j"]
+radius = 8.0
+
+[node name="Gem" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 3
+physics_material_override = SubResource("PhysicsMaterial_7gg8i")
+freeze_mode = 1
+contact_monitor = true
+max_contacts_reported = 10
+linear_damp = 10.0
+script = ExtResource("1_7gg8i")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_7ih8j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_7ih8j")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
