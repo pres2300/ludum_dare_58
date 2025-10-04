@@ -43,6 +43,7 @@ animations = [{
 size = Vector2(28, 29)
 
 [node name="Player" type="CharacterBody2D"]
+collision_mask = 13
 motion_mode = 1
 script = ExtResource("1_rkbax")
 
@@ -50,7 +51,7 @@ script = ExtResource("1_rkbax")
 sprite_frames = SubResource("SpriteFrames_g6k8r")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.42798334
+frame_progress = 0.9189032
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, 1.5)

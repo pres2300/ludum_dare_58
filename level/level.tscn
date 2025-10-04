@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://oqy6kc74nsj3"]
+[gd_scene load_steps=9 format=3 uid="uid://oqy6kc74nsj3"]
 
 [ext_resource type="Texture2D" uid="uid://boackia7wdlok" path="res://assets/background.png" id="1_7lnir"]
 [ext_resource type="PackedScene" uid="uid://briabims4m8cq" path="res://player/player.tscn" id="2_5gx2l"]
 [ext_resource type="PackedScene" uid="uid://qohmltlq8dj2" path="res://items/gem.tscn" id="3_qohg2"]
+[ext_resource type="PackedScene" uid="uid://bbxt5rwjukclg" path="res://baddies/baddie.tscn" id="4_vkbyq"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qohg2"]
 
@@ -48,6 +49,7 @@ position = Vector2(555, 360)
 position = Vector2(560, 277)
 
 [node name="RightBoundary" type="StaticBody2D" parent="."]
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightBoundary"]
 position = Vector2(1152, 0)
@@ -55,19 +57,34 @@ rotation = -1.5707964
 shape = SubResource("WorldBoundaryShape2D_qohg2")
 
 [node name="LeftBoundary" type="StaticBody2D" parent="."]
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftBoundary"]
 rotation = 1.5707964
 shape = SubResource("WorldBoundaryShape2D_vkbyq")
 
 [node name="TopBoundary" type="StaticBody2D" parent="."]
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TopBoundary"]
 position = Vector2(0, 648)
 shape = SubResource("WorldBoundaryShape2D_ktfr2")
 
 [node name="BottomBoundary" type="StaticBody2D" parent="."]
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BottomBoundary"]
 rotation = 3.1415927
 shape = SubResource("WorldBoundaryShape2D_44x8d")
+
+[node name="Baddie" parent="." instance=ExtResource("4_vkbyq")]
+position = Vector2(185, 90)
+
+[node name="Baddie2" parent="." instance=ExtResource("4_vkbyq")]
+position = Vector2(1017, 414)
+
+[node name="Baddie3" parent="." instance=ExtResource("4_vkbyq")]
+position = Vector2(689, 193)
+
+[node name="Baddie4" parent="." instance=ExtResource("4_vkbyq")]
+position = Vector2(243, 442)
