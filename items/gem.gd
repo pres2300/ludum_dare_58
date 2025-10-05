@@ -9,7 +9,7 @@ func _on_body_entered(body: Node) -> void:
 	var impulse = direction*collision_force
 	apply_central_impulse(impulse)
 
-	if body.is_in_group("baddie"):
+	if body.is_in_group("baddie") or body.is_in_group("player"):
 		if not body.has_gem:
 			body.pick_up_gem()
 			queue_free()

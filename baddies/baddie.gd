@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-#TODO: handle damage
+#TODO: play damaged sound
 
 @export var move_speed : int = 200
 @export var health : int = 3
@@ -33,7 +33,8 @@ func find_nearest_gem():
 func die_and_drop_gem():
 	if has_gem:
 		get_parent().replace_gem(global_position)
-		queue_free()
+
+	queue_free()
 
 func take_damage():
 	health -= 1

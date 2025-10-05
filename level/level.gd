@@ -4,7 +4,6 @@ extends Node2D
 @export var gem_node : PackedScene
 @export var baddie_node : PackedScene
 
-#TODO: Add gem handler (end game when all lost)
 #TODO: Add baddie spawner (more difficult over time)
 
 func replace_gem(location : Vector2) -> void:

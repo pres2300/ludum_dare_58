@@ -55,7 +55,7 @@ script = ExtResource("1_6ewrt")
 rotation = -0.0009010432
 sprite_frames = SubResource("SpriteFrames_wpd32")
 autoplay = "default"
-frame_progress = 0.65770155
+frame_progress = 0.71606785
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-7, 0)

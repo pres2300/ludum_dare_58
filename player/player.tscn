@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://briabims4m8cq"]
+[gd_scene load_steps=16 format=3 uid="uid://briabims4m8cq"]
 
 [ext_resource type="Texture2D" uid="uid://c01qq7k2mgowd" path="res://assets/player/player_idle.png" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://du4xwx3ivcw3q" path="res://player/player.gd" id="1_rkbax"]
 [ext_resource type="PackedScene" uid="uid://dkc34tymmmvfj" path="res://player/projectile.tscn" id="2_yw30f"]
 [ext_resource type="Texture2D" uid="uid://b2qhrn0vytrhd" path="res://assets/player/player_walking.png" id="3_g1dw6"]
+[ext_resource type="Texture2D" uid="uid://balu32f58tfkh" path="res://assets/items/gem.png" id="5_qjkh3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rkbax"]
 atlas = ExtResource("1_oul6g")
@@ -77,7 +78,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oul6g"]
 size = Vector2(28, 29)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_mask = 13
 motion_mode = 1
 script = ExtResource("1_rkbax")
@@ -87,7 +88,7 @@ projectile_scene = ExtResource("2_yw30f")
 sprite_frames = SubResource("SpriteFrames_g6k8r")
 animation = &"walking"
 autoplay = "idle"
-frame_progress = 0.86401683
+frame_progress = 0.393412
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, 1.5)
@@ -97,5 +98,10 @@ shape = SubResource("RectangleShape2D_oul6g")
 position = Vector2(12, -2)
 
 [node name="ShootingCooldownTimer" type="Timer" parent="."]
+
+[node name="Gem" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(19, 5)
+texture = ExtResource("5_qjkh3")
 
 [connection signal="timeout" from="ShootingCooldownTimer" to="." method="_on_shooting_cooldown_timer_timeout"]
