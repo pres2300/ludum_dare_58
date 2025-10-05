@@ -1,0 +1,113 @@
+[gd_scene load_steps=11 format=3 uid="uid://kmr0jba36dfw"]
+
+[ext_resource type="Script" uid="uid://7kfbqgfc7njr" path="res://UI/main.gd" id="1_dyfb5"]
+[ext_resource type="FontFile" uid="uid://csjcx25aamcwe" path="res://assets/fonts/Kenney Thick.ttf" id="1_emhnf"]
+[ext_resource type="PackedScene" uid="uid://oqy6kc74nsj3" path="res://level/level.tscn" id="2_e5ruq"]
+[ext_resource type="Texture2D" uid="uid://balu32f58tfkh" path="res://assets/items/gem.png" id="2_uw6j2"]
+[ext_resource type="Texture2D" uid="uid://boackia7wdlok" path="res://assets/background.png" id="3_uw6j2"]
+[ext_resource type="Script" uid="uid://bj2t8snblf6ju" path="res://level/music_handler.gd" id="5_eto42"]
+[ext_resource type="AudioStream" uid="uid://bncop5y3c50w4" path="res://assets/audio/main_music/main_intro.wav" id="6_dk31d"]
+[ext_resource type="AudioStream" uid="uid://bmnutaoqpse8q" path="res://assets/audio/intro_loop.wav" id="6_e5ruq"]
+[ext_resource type="AudioStream" uid="uid://bkthmr7eg4tnv" path="res://assets/audio/main_music/main_loop.wav" id="7_e5ruq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dyfb5"]
+font = ExtResource("1_emhnf")
+font_size = 64
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Main" type="Node"]
+script = ExtResource("1_dyfb5")
+level_scene = ExtResource("2_e5ruq")
+
+[node name="TitleScreen" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TitleScreen"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TitleScreen/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TitleScreen/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Dragon Hoard"
+label_settings = SubResource("LabelSettings_dyfb5")
+
+[node name="MarginContainer" type="MarginContainer" parent="TitleScreen/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/margin_top = 445
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TitleScreen/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="StartButton" type="Button" parent="TitleScreen/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("1_emhnf")
+theme_override_font_sizes/font_size = 32
+text = "START"
+
+[node name="Gem1" type="Sprite2D" parent="TitleScreen"]
+position = Vector2(571, 291)
+texture = ExtResource("2_uw6j2")
+
+[node name="Gem2" type="Sprite2D" parent="TitleScreen"]
+position = Vector2(548, 316)
+texture = ExtResource("2_uw6j2")
+
+[node name="Gem3" type="Sprite2D" parent="TitleScreen"]
+position = Vector2(572, 317)
+texture = ExtResource("2_uw6j2")
+
+[node name="Gem4" type="Sprite2D" parent="TitleScreen"]
+position = Vector2(597, 317)
+texture = ExtResource("2_uw6j2")
+
+[node name="Gem5" type="Sprite2D" parent="TitleScreen"]
+position = Vector2(548, 344)
+texture = ExtResource("2_uw6j2")
+
+[node name="Gem6" type="Sprite2D" parent="TitleScreen"]
+position = Vector2(573, 344)
+texture = ExtResource("2_uw6j2")
+
+[node name="Gem7" type="Sprite2D" parent="TitleScreen"]
+position = Vector2(599, 343)
+texture = ExtResource("2_uw6j2")
+
+[node name="Gem8" type="Sprite2D" parent="TitleScreen"]
+position = Vector2(574, 373)
+texture = ExtResource("2_uw6j2")
+
+[node name="Background" type="Sprite2D" parent="TitleScreen"]
+z_index = -1
+position = Vector2(576, 324)
+texture = ExtResource("3_uw6j2")
+
+[node name="MusicHandler" type="Node2D" parent="."]
+script = ExtResource("5_eto42")
+title = ExtResource("6_e5ruq")
+intro = ExtResource("6_dk31d")
+loop = ExtResource("7_e5ruq")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MusicHandler"]
+process_mode = 3
+volume_db = -10.0
+
+[connection signal="pressed" from="TitleScreen/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/StartButton" to="." method="_on_start_button_pressed"]

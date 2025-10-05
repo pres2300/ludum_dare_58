@@ -3,7 +3,7 @@ extends CharacterBody2D
 #TODO: play damaged sound
 
 @export var move_speed : int = 200
-@export var health : int = 3
+@export var health : int = 1
 
 @onready var gem = $Gem
 @onready var sprite = $AnimatedSprite2D
@@ -32,7 +32,7 @@ func find_nearest_gem():
 
 func die_and_drop_gem():
 	if has_gem:
-		get_parent().replace_gem(global_position)
+		get_tree().get_first_node_in_group("level").replace_gem(global_position)
 
 	queue_free()
 

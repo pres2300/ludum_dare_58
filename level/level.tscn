@@ -1,13 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://oqy6kc74nsj3"]
+[gd_scene load_steps=11 format=3 uid="uid://oqy6kc74nsj3"]
 
 [ext_resource type="Texture2D" uid="uid://boackia7wdlok" path="res://assets/background.png" id="1_7lnir"]
 [ext_resource type="Script" uid="uid://cfhe4exqt8w0w" path="res://level/level.gd" id="1_ktfr2"]
 [ext_resource type="PackedScene" uid="uid://briabims4m8cq" path="res://player/player.tscn" id="2_5gx2l"]
 [ext_resource type="PackedScene" uid="uid://qohmltlq8dj2" path="res://items/gem.tscn" id="3_qohg2"]
+[ext_resource type="PackedScene" uid="uid://lgnwqvc8ccdg" path="res://UI/hud.tscn" id="4_6gtgk"]
 [ext_resource type="PackedScene" uid="uid://bbxt5rwjukclg" path="res://baddies/baddie.tscn" id="4_vkbyq"]
-[ext_resource type="Script" uid="uid://bj2t8snblf6ju" path="res://level/music_handler.gd" id="6_44x8d"]
-[ext_resource type="AudioStream" uid="uid://bncop5y3c50w4" path="res://assets/audio/main_music/main_intro.wav" id="7_0v1st"]
-[ext_resource type="AudioStream" uid="uid://bkthmr7eg4tnv" path="res://assets/audio/main_music/main_loop.wav" id="8_6gtgk"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qohg2"]
 
@@ -17,10 +15,12 @@
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_44x8d"]
 
-[node name="Level" type="Node2D"]
+[node name="Level" type="Node2D" groups=["level"]]
 script = ExtResource("1_ktfr2")
 gem_node = ExtResource("3_qohg2")
 baddie_node = ExtResource("4_vkbyq")
+
+[node name="HUD" parent="." instance=ExtResource("4_6gtgk")]
 
 [node name="Background" type="Sprite2D" parent="."]
 texture = ExtResource("1_7lnir")
@@ -55,6 +55,154 @@ position = Vector2(555, 360)
 [node name="Gem8" parent="GemsList" instance=ExtResource("3_qohg2")]
 position = Vector2(560, 277)
 
+[node name="BaddieList" type="Node" parent="."]
+
+[node name="Baddie" parent="BaddieList" instance=ExtResource("4_vkbyq")]
+position = Vector2(185, 90)
+
+[node name="SpawnLocations" type="Node" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="SpawnLocations"]
+position = Vector2(-87, 48)
+
+[node name="Marker2D8" type="Marker2D" parent="SpawnLocations"]
+position = Vector2(-80, -91)
+
+[node name="Marker2D9" type="Marker2D" parent="SpawnLocations"]
+position = Vector2(64, -94)
+
+[node name="Marker2D10" type="Marker2D" parent="SpawnLocations"]
+position = Vector2(181, -96)
+
+[node name="Marker2D11" type="Marker2D" parent="SpawnLocations"]
+position = Vector2(278, -97)
+
+[node name="Marker2D12" type="Marker2D" parent="SpawnLocations"]
+position = Vector2(370, -94)
+
+[node name="Marker2D13" type="Marker2D" parent="SpawnLocations"]
+position = Vector2(467, -92)
+
+[node name="Marker2D14" type="Marker2D" parent="SpawnLocations"]
+position = Vector2(555, -91)
+
+[node name="Marker2D15" type="Marker2D" parent="SpawnLocations"]
+position = Vector2(647, -91)
+
+[node name="Marker2D16" type="Marker2D" parent="SpawnLocations"]
+position = Vector2(735, -92)
+
+[node name="Marker2D17" type="Marker2D" parent="SpawnLocations"]
+position = Vector2(827, -91)
+
+[node name="Marker2D18" type="Marker2D" parent="SpawnLocations"]
+position = Vector2(913, -90)
+
+[node name="Marker2D19" type="Marker2D" parent="SpawnLocations"]
+position = Vector2(990, -91)
+
+[node name="Marker2D20" type="Marker2D" parent="SpawnLocations"]
+position = Vector2(1052, -92)
+
+[node name="Marker2D21" type="Marker2D" parent="SpawnLocations"]
+position = Vector2(1155, -95)
+
+[node name="Marker2D22" type="Marker2D" parent="SpawnLocations"]
+position = Vector2(1241, -95)
+
+[node name="Marker2D23" type="Marker2D" parent="SpawnLocations"]
+position = Vector2(1241, -95)
+
+[node name="Marker2D2" type="Marker2D" parent="SpawnLocations"]
+position = Vector2(-93, 596)
+
+[node name="Marker2D3" type="Marker2D" parent="SpawnLocations"]
+position = Vector2(-91, 503)
+
+[node name="Marker2D4" type="Marker2D" parent="SpawnLocations"]
+position = Vector2(-93, 389)
+
+[node name="Marker2D5" type="Marker2D" parent="SpawnLocations"]
+position = Vector2(-96, 308)
+
+[node name="Marker2D6" type="Marker2D" parent="SpawnLocations"]
+position = Vector2(-97, 219)
+
+[node name="Marker2D7" type="Marker2D" parent="SpawnLocations"]
+position = Vector2(-97, 127)
+
+[node name="Marker2D24" type="Marker2D" parent="SpawnLocations"]
+position = Vector2(-87, 724)
+
+[node name="Marker2D25" type="Marker2D" parent="SpawnLocations"]
+position = Vector2(57, 721)
+
+[node name="Marker2D26" type="Marker2D" parent="SpawnLocations"]
+position = Vector2(174, 719)
+
+[node name="Marker2D27" type="Marker2D" parent="SpawnLocations"]
+position = Vector2(271, 718)
+
+[node name="Marker2D28" type="Marker2D" parent="SpawnLocations"]
+position = Vector2(363, 721)
+
+[node name="Marker2D29" type="Marker2D" parent="SpawnLocations"]
+position = Vector2(460, 723)
+
+[node name="Marker2D30" type="Marker2D" parent="SpawnLocations"]
+position = Vector2(548, 724)
+
+[node name="Marker2D31" type="Marker2D" parent="SpawnLocations"]
+position = Vector2(640, 724)
+
+[node name="Marker2D32" type="Marker2D" parent="SpawnLocations"]
+position = Vector2(728, 723)
+
+[node name="Marker2D33" type="Marker2D" parent="SpawnLocations"]
+position = Vector2(820, 724)
+
+[node name="Marker2D34" type="Marker2D" parent="SpawnLocations"]
+position = Vector2(906, 725)
+
+[node name="Marker2D35" type="Marker2D" parent="SpawnLocations"]
+position = Vector2(983, 724)
+
+[node name="Marker2D36" type="Marker2D" parent="SpawnLocations"]
+position = Vector2(1045, 723)
+
+[node name="Marker2D37" type="Marker2D" parent="SpawnLocations"]
+position = Vector2(1148, 720)
+
+[node name="Marker2D38" type="Marker2D" parent="SpawnLocations"]
+position = Vector2(1234, 720)
+
+[node name="Marker2D39" type="Marker2D" parent="SpawnLocations"]
+position = Vector2(1234, 720)
+
+[node name="Marker2D40" type="Marker2D" parent="SpawnLocations"]
+position = Vector2(1252, 8)
+
+[node name="Marker2D41" type="Marker2D" parent="SpawnLocations"]
+position = Vector2(1248, 648)
+
+[node name="Marker2D42" type="Marker2D" parent="SpawnLocations"]
+position = Vector2(1246, 556)
+
+[node name="Marker2D43" type="Marker2D" parent="SpawnLocations"]
+position = Vector2(1248, 463)
+
+[node name="Marker2D44" type="Marker2D" parent="SpawnLocations"]
+position = Vector2(1246, 349)
+
+[node name="Marker2D45" type="Marker2D" parent="SpawnLocations"]
+position = Vector2(1243, 268)
+
+[node name="Marker2D46" type="Marker2D" parent="SpawnLocations"]
+position = Vector2(1242, 179)
+
+[node name="Marker2D47" type="Marker2D" parent="SpawnLocations"]
+position = Vector2(1242, 87)
+
 [node name="RightBoundary" type="StaticBody2D" parent="."]
 collision_layer = 4
 
@@ -84,14 +232,7 @@ collision_layer = 4
 rotation = 3.1415927
 shape = SubResource("WorldBoundaryShape2D_44x8d")
 
-[node name="Baddie" parent="." instance=ExtResource("4_vkbyq")]
-position = Vector2(185, 90)
+[node name="NextLevelTimer" type="Timer" parent="."]
+one_shot = true
 
-[node name="MusicHandler" type="Node2D" parent="."]
-script = ExtResource("6_44x8d")
-intro = ExtResource("7_0v1st")
-loop = ExtResource("8_6gtgk")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MusicHandler"]
-process_mode = 3
-volume_db = -10.0
+[connection signal="timeout" from="NextLevelTimer" to="." method="_on_next_level_timer_timeout"]

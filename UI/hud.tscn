@@ -1,0 +1,101 @@
+[gd_scene load_steps=7 format=3 uid="uid://lgnwqvc8ccdg"]
+
+[ext_resource type="Script" uid="uid://dpn1isfnq0d5p" path="res://UI/hud.gd" id="1_bytes"]
+[ext_resource type="FontFile" uid="uid://hj1w38hd1h2u" path="res://assets/fonts/Kenney Pixel.ttf" id="1_ne75i"]
+[ext_resource type="FontFile" uid="uid://csjcx25aamcwe" path="res://assets/fonts/Kenney Thick.ttf" id="3_2o5uh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bytes"]
+font = ExtResource("1_ne75i")
+font_size = 32
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2o5uh"]
+font = ExtResource("1_ne75i")
+font_size = 32
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_b1lf8"]
+font = ExtResource("3_2o5uh")
+font_size = 32
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="HUD" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_bytes")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+offset_right = 41.0
+offset_bottom = 23.0
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Wave "
+label_settings = SubResource("LabelSettings_bytes")
+
+[node name="CurrentLevel" type="Label" parent="Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_2o5uh")
+
+[node name="Countdown" type="MarginContainer" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 500.0
+offset_top = -20.0
+offset_right = 650.0
+offset_bottom = 20.0
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Countdown"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/Countdown/HBoxContainer"]
+layout_mode = 2
+text = "Next wave in "
+label_settings = SubResource("LabelSettings_bytes")
+
+[node name="Countdown" type="Label" parent="Control/Countdown/HBoxContainer"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_bytes")
+
+[node name="MarginContainer2" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 35
+
+[node name="Paused" type="Label" parent="Control/MarginContainer2"]
+visible = false
+layout_mode = 2
+text = "PAUSED"
+label_settings = SubResource("LabelSettings_b1lf8")
