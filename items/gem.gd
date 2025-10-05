@@ -8,9 +8,11 @@ func _on_body_entered(body: Node) -> void:
 	var direction = (position - body.position).normalized()
 	var impulse = direction*collision_force
 	apply_central_impulse(impulse)
+	if not $AudioStreamPlayer2D.playing:
+		$AudioStreamPlayer2D.play()
 
 	if body.is_in_group("baddie"):
-		if not body.has_gem:
+		if not body.has_gem and not body.dying:
 			body.pick_up_gem()
 			queue_free()
 

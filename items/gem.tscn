@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://qohmltlq8dj2"]
+[gd_scene load_steps=6 format=3 uid="uid://qohmltlq8dj2"]
 
 [ext_resource type="Script" uid="uid://dp4uq5ic1ipu7" path="res://items/gem.gd" id="1_7gg8i"]
 [ext_resource type="Texture2D" uid="uid://balu32f58tfkh" path="res://assets/items/gem.png" id="1_7ih8j"]
+[ext_resource type="AudioStream" uid="uid://c1t1ip071hegh" path="res://assets/audio/ball_bump.wav" id="3_kkmu8"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7gg8i"]
 bounce = 1.0
@@ -19,6 +20,7 @@ max_contacts_reported = 10
 linear_damp = 10.0
 angular_damp = 10.0
 script = ExtResource("1_7gg8i")
+collision_force = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_7ih8j")
@@ -27,6 +29,9 @@ texture = ExtResource("1_7ih8j")
 shape = SubResource("CircleShape2D_7ih8j")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_kkmu8")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

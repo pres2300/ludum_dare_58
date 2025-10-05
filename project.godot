@@ -13,10 +13,12 @@ config_version=5
 config/name="LudumDare58"
 run/main_scene="uid://kmr0jba36dfw"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://d256ac354ryga"
 
 [display]
 
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
 window/default_gravity_vector=Vector2(0, 1)
 window/default_gravity=-770.4270000000001
 

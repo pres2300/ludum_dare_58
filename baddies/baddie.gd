@@ -11,6 +11,7 @@ extends CharacterBody2D
 
 var target_gem = null
 var has_gem : bool = false
+var dying : bool = false
 
 signal gem_stolen
 
@@ -32,14 +33,23 @@ func find_nearest_gem():
 
 func die_and_drop_gem():
 	if has_gem:
+		has_gem = false
 		get_tree().get_first_node_in_group("level").replace_gem(global_position)
+		gem.hide()
+
+	$DieSound.play()
+	await $DieSound.finished
 
 	queue_free()
 
 func take_damage():
+	if dying:
+		return
+
 	health -= 1
 
 	if health <= 0:
+		dying = true
 		die_and_drop_gem()
 
 func pick_up_gem():
@@ -51,6 +61,9 @@ func _ready():
 	target_gem = find_nearest_gem()
 
 func _physics_process(_delta):
+	if dying:
+		return
+
 	if not has_gem:
 		if (is_instance_valid(target_gem)):
 			velocity = global_position.direction_to(target_gem.get_global_position())*move_speed

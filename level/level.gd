@@ -14,18 +14,25 @@ var num_gems : int
 var level_active : bool = true
 var max_level : int
 
+signal game_over
+signal game_won
+
 func replace_gem(location : Vector2) -> void:
 	var new_gem = gem_node.instantiate()
-	new_gem.position = location
-	add_child(new_gem)
+	new_gem.global_position = location
+	gems_list.add_child(new_gem)
 	new_gem.gem_lost.connect(_gem_lost)
 
 func setup_next_level() -> void:
 	current_level += 1
-	hud.set_level(current_level)
-	hud.set_countdown(5)
-	hud.show_countdown()
-	next_level_timer.start(5.0)
+
+	if current_level > max_level:
+		game_won.emit()
+	else:
+		hud.set_level(current_level)
+		hud.set_countdown(5)
+		hud.show_countdown()
+		next_level_timer.start(5.0)
 
 func spawn_baddies() -> void:
 	# List of spawn locations to keep track and not spawn baddies on top of each other
@@ -54,7 +61,7 @@ func _process(_delta: float) -> void:
 		hud.set_countdown(time_left)
 
 	if num_gems <= 0:
-		print("game over")
+		game_over.emit(current_level)
 
 func _ready():
 	hud.set_level(current_level)
@@ -63,6 +70,8 @@ func _ready():
 
 	for gem in gems_list.get_children():
 		gem.gem_lost.connect(_gem_lost)
+
+	spawn_baddies()
 
 func _on_next_level_timer_timeout() -> void:
 	hud.hide_countdown()

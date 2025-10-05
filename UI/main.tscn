@@ -1,10 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://kmr0jba36dfw"]
+[gd_scene load_steps=13 format=3 uid="uid://kmr0jba36dfw"]
 
 [ext_resource type="Script" uid="uid://7kfbqgfc7njr" path="res://UI/main.gd" id="1_dyfb5"]
 [ext_resource type="FontFile" uid="uid://csjcx25aamcwe" path="res://assets/fonts/Kenney Thick.ttf" id="1_emhnf"]
 [ext_resource type="PackedScene" uid="uid://oqy6kc74nsj3" path="res://level/level.tscn" id="2_e5ruq"]
 [ext_resource type="Texture2D" uid="uid://balu32f58tfkh" path="res://assets/items/gem.png" id="2_uw6j2"]
+[ext_resource type="PackedScene" uid="uid://c08jwxtlus60l" path="res://UI/game_over.tscn" id="3_fmhtc"]
 [ext_resource type="Texture2D" uid="uid://boackia7wdlok" path="res://assets/background.png" id="3_uw6j2"]
+[ext_resource type="PackedScene" uid="uid://c83nkkwsb2tfg" path="res://UI/game_won.tscn" id="4_a2b50"]
 [ext_resource type="Script" uid="uid://bj2t8snblf6ju" path="res://level/music_handler.gd" id="5_eto42"]
 [ext_resource type="AudioStream" uid="uid://bncop5y3c50w4" path="res://assets/audio/main_music/main_intro.wav" id="6_dk31d"]
 [ext_resource type="AudioStream" uid="uid://bmnutaoqpse8q" path="res://assets/audio/intro_loop.wav" id="6_e5ruq"]
@@ -19,6 +21,8 @@ outline_color = Color(0, 0, 0, 1)
 [node name="Main" type="Node"]
 script = ExtResource("1_dyfb5")
 level_scene = ExtResource("2_e5ruq")
+game_over_scene = ExtResource("3_fmhtc")
+game_won_scene = ExtResource("4_a2b50")
 
 [node name="TitleScreen" type="Control" parent="."]
 layout_mode = 3

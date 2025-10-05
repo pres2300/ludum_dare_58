@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://bbxt5rwjukclg"]
+[gd_scene load_steps=12 format=3 uid="uid://bbxt5rwjukclg"]
 
 [ext_resource type="Script" uid="uid://cfwqt0t7s1ps5" path="res://baddies/baddie.gd" id="1_6ewrt"]
 [ext_resource type="Texture2D" uid="uid://b3oi4lbdpblks" path="res://assets/baddies/baddie_walking.png" id="2_nmcg7"]
 [ext_resource type="Texture2D" uid="uid://balu32f58tfkh" path="res://assets/items/gem.png" id="3_nmcg7"]
 [ext_resource type="AudioStream" uid="uid://kubgcx1l3a0x" path="res://assets/audio/gem_stolen.wav" id="4_mucu5"]
+[ext_resource type="AudioStream" uid="uid://chnh863xho04m" path="res://assets/audio/dead.wav" id="5_qm621"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mucu5"]
 atlas = ExtResource("2_nmcg7")
@@ -71,5 +72,9 @@ texture = ExtResource("3_nmcg7")
 [node name="GemStolenSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_mucu5")
 volume_db = -5.0
+
+[node name="DieSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_qm621")
+volume_db = -10.0
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

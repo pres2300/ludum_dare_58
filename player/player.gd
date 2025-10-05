@@ -6,6 +6,7 @@ extends CharacterBody2D
 
 @onready var sprite = $AnimatedSprite2D
 @onready var shooting_cooldown_timer = $ShootingCooldownTimer
+@onready var shooting_sound = $AudioStreamPlayer2D
 
 var is_shooting_cooldown : bool = false
 
@@ -29,7 +30,7 @@ func attack():
 		$MouthLocation.position.x = 12
 
 	b.start($MouthLocation.global_transform)
-	#$AttackSound.play()
+	shooting_sound.play()
 	shooting_cooldown_timer.start(shooting_cooldown)
 
 func _process(_delta):

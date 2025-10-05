@@ -15,11 +15,6 @@ func switch_to_main_audio() -> void:
 			break
 		await get_tree().process_frame
 
-	while audio_player.playing:
-		if audio_player.get_playback_position() >= title_length/2.0:
-			break
-		await get_tree().process_frame
-
 	var intro_length = intro.get_length()
 
 	audio_player.stream = intro
@@ -31,6 +26,17 @@ func switch_to_main_audio() -> void:
 		await get_tree().process_frame
 
 	audio_player.stream = loop
+	audio_player.play()
+
+func switch_to_title_audio() -> void:
+	var main_length = loop.get_length()
+
+	while audio_player.playing:
+		if audio_player.get_playback_position() < main_length/2.0:
+			break
+		await get_tree().process_frame
+
+	audio_player.stream = title
 	audio_player.play()
 
 func _ready():

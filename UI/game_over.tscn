@@ -1,0 +1,91 @@
+[gd_scene load_steps=7 format=3 uid="uid://c08jwxtlus60l"]
+
+[ext_resource type="FontFile" uid="uid://csjcx25aamcwe" path="res://assets/fonts/Kenney Thick.ttf" id="1_3y5qq"]
+[ext_resource type="Script" uid="uid://7td2ndti1b5o" path="res://UI/game_over.gd" id="1_wruqd"]
+[ext_resource type="Texture2D" uid="uid://boackia7wdlok" path="res://assets/background.png" id="2_wruqd"]
+[ext_resource type="FontFile" uid="uid://hj1w38hd1h2u" path="res://assets/fonts/Kenney Pixel.ttf" id="3_phit2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_phit2"]
+font = ExtResource("1_3y5qq")
+font_size = 64
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fmr02"]
+font = ExtResource("3_phit2")
+font_size = 32
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wruqd")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -364.0
+offset_right = 364.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_phit2")
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 210
+
+[node name="VBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Max Wave Reached"
+label_settings = SubResource("LabelSettings_fmr02")
+
+[node name="WaveReached" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+label_settings = SubResource("LabelSettings_fmr02")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/margin_top = 225
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="StartButton" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("1_3y5qq")
+theme_override_font_sizes/font_size = 32
+text = "TRY AGAIN"
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(576, 324)
+texture = ExtResource("2_wruqd")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
