@@ -1,27 +1,70 @@
-[gd_scene load_steps=4 format=3 uid="uid://bbxt5rwjukclg"]
+[gd_scene load_steps=10 format=3 uid="uid://bbxt5rwjukclg"]
 
 [ext_resource type="Script" uid="uid://cfwqt0t7s1ps5" path="res://baddies/baddie.gd" id="1_6ewrt"]
-[ext_resource type="Texture2D" uid="uid://d03f5frituxiu" path="res://assets/baddies/baddie.png" id="1_c4gg8"]
+[ext_resource type="Texture2D" uid="uid://b3oi4lbdpblks" path="res://assets/baddies/baddie_walking.png" id="2_nmcg7"]
+[ext_resource type="Texture2D" uid="uid://balu32f58tfkh" path="res://assets/items/gem.png" id="3_nmcg7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mucu5"]
+atlas = ExtResource("2_nmcg7")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qm621"]
+atlas = ExtResource("2_nmcg7")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5xgee"]
+atlas = ExtResource("2_nmcg7")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qij4p"]
+atlas = ExtResource("2_nmcg7")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wpd32"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mucu5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qm621")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5xgee")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qij4p")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6ewrt"]
 radius = 9.0
 height = 32.0
 
-[node name="Baddie" type="CharacterBody2D"]
+[node name="Baddie" type="CharacterBody2D" groups=["baddie"]]
 collision_layer = 8
 collision_mask = 9
 motion_mode = 1
 script = ExtResource("1_6ewrt")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 rotation = -0.0009010432
-texture = ExtResource("1_c4gg8")
+sprite_frames = SubResource("SpriteFrames_wpd32")
+autoplay = "default"
+frame_progress = 0.11347662
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-7, 0)
 shape = SubResource("CapsuleShape2D_6ewrt")
 
+[node name="Gem" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(10, 0)
+texture = ExtResource("3_nmcg7")
+
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(-7, -1)
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
