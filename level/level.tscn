@@ -55,12 +55,117 @@ position = Vector2(555, 360)
 [node name="Gem8" parent="GemsList" instance=ExtResource("3_qohg2")]
 position = Vector2(560, 277)
 
+[node name="Gem9" parent="GemsList" instance=ExtResource("3_qohg2")]
+position = Vector2(529, 276)
+
+[node name="Gem10" parent="GemsList" instance=ExtResource("3_qohg2")]
+position = Vector2(590, 275)
+
+[node name="Gem11" parent="GemsList" instance=ExtResource("3_qohg2")]
+position = Vector2(591, 366)
+
+[node name="Gem12" parent="GemsList" instance=ExtResource("3_qohg2")]
+position = Vector2(523, 360)
+
+[node name="Gem13" parent="GemsList" instance=ExtResource("3_qohg2")]
+position = Vector2(620, 345)
+
+[node name="Gem14" parent="GemsList" instance=ExtResource("3_qohg2")]
+position = Vector2(615, 315)
+
+[node name="Gem15" parent="GemsList" instance=ExtResource("3_qohg2")]
+position = Vector2(614, 279)
+
+[node name="Gem16" parent="GemsList" instance=ExtResource("3_qohg2")]
+position = Vector2(606, 244)
+
+[node name="Gem17" parent="GemsList" instance=ExtResource("3_qohg2")]
+position = Vector2(572, 239)
+
+[node name="Gem18" parent="GemsList" instance=ExtResource("3_qohg2")]
+position = Vector2(537, 234)
+
+[node name="Gem19" parent="GemsList" instance=ExtResource("3_qohg2")]
+position = Vector2(510, 252)
+
+[node name="Gem20" parent="GemsList" instance=ExtResource("3_qohg2")]
+position = Vector2(500, 281)
+
+[node name="Gem21" parent="GemsList" instance=ExtResource("3_qohg2")]
+position = Vector2(505, 308)
+
+[node name="Gem22" parent="GemsList" instance=ExtResource("3_qohg2")]
+position = Vector2(493, 337)
+
+[node name="Gem23" parent="GemsList" instance=ExtResource("3_qohg2")]
+position = Vector2(489, 382)
+
+[node name="Gem24" parent="GemsList" instance=ExtResource("3_qohg2")]
+position = Vector2(523, 393)
+
+[node name="Gem25" parent="GemsList" instance=ExtResource("3_qohg2")]
+position = Vector2(554, 393)
+
+[node name="Gem26" parent="GemsList" instance=ExtResource("3_qohg2")]
+position = Vector2(588, 398)
+
+[node name="Gem27" parent="GemsList" instance=ExtResource("3_qohg2")]
+position = Vector2(617, 388)
+
+[node name="Gem28" parent="GemsList" instance=ExtResource("3_qohg2")]
+position = Vector2(640, 366)
+
+[node name="Gem29" parent="GemsList" instance=ExtResource("3_qohg2")]
+position = Vector2(648, 331)
+
+[node name="Gem30" parent="GemsList" instance=ExtResource("3_qohg2")]
+position = Vector2(646, 300)
+
+[node name="Gem31" parent="GemsList" instance=ExtResource("3_qohg2")]
+position = Vector2(645, 270)
+
+[node name="Gem32" parent="GemsList" instance=ExtResource("3_qohg2")]
+position = Vector2(641, 241)
+
+[node name="Gem33" parent="GemsList" instance=ExtResource("3_qohg2")]
+position = Vector2(618, 218)
+
+[node name="Gem34" parent="GemsList" instance=ExtResource("3_qohg2")]
+position = Vector2(589, 203)
+
+[node name="Gem35" parent="GemsList" instance=ExtResource("3_qohg2")]
+position = Vector2(562, 199)
+
+[node name="Gem36" parent="GemsList" instance=ExtResource("3_qohg2")]
+position = Vector2(535, 200)
+
+[node name="Gem37" parent="GemsList" instance=ExtResource("3_qohg2")]
+position = Vector2(512, 212)
+
+[node name="Gem38" parent="GemsList" instance=ExtResource("3_qohg2")]
+position = Vector2(491, 229)
+
+[node name="Gem39" parent="GemsList" instance=ExtResource("3_qohg2")]
+position = Vector2(474, 253)
+
+[node name="Gem40" parent="GemsList" instance=ExtResource("3_qohg2")]
+position = Vector2(466, 282)
+
+[node name="Gem41" parent="GemsList" instance=ExtResource("3_qohg2")]
+position = Vector2(461, 309)
+
+[node name="Gem42" parent="GemsList" instance=ExtResource("3_qohg2")]
+position = Vector2(457, 340)
+
+[node name="Gem43" parent="GemsList" instance=ExtResource("3_qohg2")]
+position = Vector2(464, 363)
+
 [node name="BaddieList" type="Node" parent="."]
 
 [node name="SpawnLocations" type="Node" parent="."]
 
 [node name="Marker2D" type="Marker2D" parent="SpawnLocations"]
-position = Vector2(-87, 48)
+position = Vector2(-87, 50)
 
 [node name="Marker2D8" type="Marker2D" parent="SpawnLocations"]
 position = Vector2(-80, -91)
@@ -105,9 +210,6 @@ position = Vector2(1052, -92)
 position = Vector2(1155, -95)
 
 [node name="Marker2D22" type="Marker2D" parent="SpawnLocations"]
-position = Vector2(1241, -95)
-
-[node name="Marker2D23" type="Marker2D" parent="SpawnLocations"]
 position = Vector2(1241, -95)
 
 [node name="Marker2D2" type="Marker2D" parent="SpawnLocations"]
@@ -171,9 +273,6 @@ position = Vector2(1045, 723)
 position = Vector2(1148, 720)
 
 [node name="Marker2D38" type="Marker2D" parent="SpawnLocations"]
-position = Vector2(1234, 720)
-
-[node name="Marker2D39" type="Marker2D" parent="SpawnLocations"]
 position = Vector2(1234, 720)
 
 [node name="Marker2D40" type="Marker2D" parent="SpawnLocations"]
