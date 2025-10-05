@@ -1,13 +1,33 @@
 extends CharacterBody2D
 
-#TODO: shoot projectiles
-
+@export var projectile_scene : PackedScene
 @export var move_speed : int = 350
+@export var shooting_cooldown : float = 1.0
 
 @onready var sprite = $AnimatedSprite2D
+@onready var shooting_cooldown_timer = $ShootingCooldownTimer
+
+var is_shooting_cooldown : bool = false
 
 func get_input():
 	return Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+
+func attack():
+	if is_shooting_cooldown:
+		return
+
+	is_shooting_cooldown = true
+	var b = projectile_scene.instantiate()
+	get_tree().root.add_child(b)
+	var dir = global_position.direction_to(get_global_mouse_position())
+	$MouthLocation.rotation = dir.angle()
+	b.start($MouthLocation.global_transform)
+	#$AttackSound.play()
+	shooting_cooldown_timer.start(shooting_cooldown)
+
+func _process(_delta):
+	if Input.is_action_pressed("attack"):
+		attack()
 
 func _physics_process(_delta: float) -> void:
 	var input_direction = get_input()
@@ -24,3 +44,6 @@ func _physics_process(_delta: float) -> void:
 		sprite.play("idle")
 
 	move_and_slide()
+
+func _on_shooting_cooldown_timer_timeout() -> void:
+	is_shooting_cooldown = false

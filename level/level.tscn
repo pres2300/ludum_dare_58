@@ -1,10 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://oqy6kc74nsj3"]
+[gd_scene load_steps=13 format=3 uid="uid://oqy6kc74nsj3"]
 
 [ext_resource type="Texture2D" uid="uid://boackia7wdlok" path="res://assets/background.png" id="1_7lnir"]
 [ext_resource type="Script" uid="uid://cfhe4exqt8w0w" path="res://level/level.gd" id="1_ktfr2"]
 [ext_resource type="PackedScene" uid="uid://briabims4m8cq" path="res://player/player.tscn" id="2_5gx2l"]
 [ext_resource type="PackedScene" uid="uid://qohmltlq8dj2" path="res://items/gem.tscn" id="3_qohg2"]
 [ext_resource type="PackedScene" uid="uid://bbxt5rwjukclg" path="res://baddies/baddie.tscn" id="4_vkbyq"]
+[ext_resource type="Script" uid="uid://bj2t8snblf6ju" path="res://level/music_handler.gd" id="6_44x8d"]
+[ext_resource type="AudioStream" uid="uid://bncop5y3c50w4" path="res://assets/audio/main_music/main_intro.wav" id="7_0v1st"]
+[ext_resource type="AudioStream" uid="uid://bkthmr7eg4tnv" path="res://assets/audio/main_music/main_loop.wav" id="8_6gtgk"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qohg2"]
 
@@ -83,3 +86,12 @@ shape = SubResource("WorldBoundaryShape2D_44x8d")
 
 [node name="Baddie" parent="." instance=ExtResource("4_vkbyq")]
 position = Vector2(185, 90)
+
+[node name="MusicHandler" type="Node2D" parent="."]
+script = ExtResource("6_44x8d")
+intro = ExtResource("7_0v1st")
+loop = ExtResource("8_6gtgk")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MusicHandler"]
+process_mode = 3
+volume_db = -10.0

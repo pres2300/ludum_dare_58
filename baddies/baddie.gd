@@ -7,6 +7,7 @@ extends CharacterBody2D
 
 @onready var gem = $Gem
 @onready var sprite = $AnimatedSprite2D
+@onready var gem_stolen_sound = $GemStolenSound
 
 var target_gem = null
 var has_gem : bool = false
@@ -68,6 +69,7 @@ func _physics_process(_delta):
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	if has_gem:
 		gem_stolen.emit()
+		gem_stolen_sound.play()
 		gem.hide()
 		has_gem = false
 		target_gem = find_nearest_gem()

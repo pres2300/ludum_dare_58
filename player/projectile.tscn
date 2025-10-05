@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://dkc34tymmmvfj"]
+
+[ext_resource type="Texture2D" uid="uid://7j5ngi208cu" path="res://assets/projectile/projectile.png" id="1_d1ygb"]
+[ext_resource type="Script" uid="uid://dfkh3qc5dfjgo" path="res://player/projectile.gd" id="1_islhu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d1ygb"]
+radius = 8.0
+
+[sub_resource type="Curve" id="Curve_d1ygb"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.6453489, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_islhu"]
+colors = PackedColorArray(0.5873669, 0, 0, 1, 0.8367491, 0.8152507, 0.16007765, 1)
+
+[node name="Projectile" type="Area2D"]
+collision_layer = 16
+collision_mask = 8
+script = ExtResource("1_islhu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_d1ygb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_d1ygb")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(-7.88, 0)
+rotation = 1.5707964
+amount = 30
+lifetime = 0.2
+local_coords = true
+emission_shape = 1
+emission_sphere_radius = 8.0
+scale_amount_min = 1.05
+scale_amount_max = 1.85
+scale_amount_curve = SubResource("Curve_d1ygb")
+color = Color(1, 0.26999998, 0.26999998, 1)
+color_ramp = SubResource("Gradient_islhu")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

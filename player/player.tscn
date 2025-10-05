@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://briabims4m8cq"]
+[gd_scene load_steps=15 format=3 uid="uid://briabims4m8cq"]
 
 [ext_resource type="Texture2D" uid="uid://c01qq7k2mgowd" path="res://assets/player/player_idle.png" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://du4xwx3ivcw3q" path="res://player/player.gd" id="1_rkbax"]
+[ext_resource type="PackedScene" uid="uid://dkc34tymmmvfj" path="res://player/projectile.tscn" id="2_yw30f"]
 [ext_resource type="Texture2D" uid="uid://b2qhrn0vytrhd" path="res://assets/player/player_walking.png" id="3_g1dw6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rkbax"]
@@ -80,13 +81,21 @@ size = Vector2(28, 29)
 collision_mask = 13
 motion_mode = 1
 script = ExtResource("1_rkbax")
+projectile_scene = ExtResource("2_yw30f")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_g6k8r")
 animation = &"walking"
 autoplay = "idle"
-frame_progress = 0.2642827
+frame_progress = 0.86401683
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, 1.5)
 shape = SubResource("RectangleShape2D_oul6g")
+
+[node name="MouthLocation" type="Marker2D" parent="."]
+position = Vector2(12, -2)
+
+[node name="ShootingCooldownTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="ShootingCooldownTimer" to="." method="_on_shooting_cooldown_timer_timeout"]
