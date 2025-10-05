@@ -7,7 +7,7 @@ extends Node2D
 #TODO: Add gem handler (end game when all lost)
 #TODO: Add baddie spawner (more difficult over time)
 
-func spawn_gem(location : Vector2) -> void:
+func replace_gem(location : Vector2) -> void:
 	var new_gem = gem_node.instantiate()
 	new_gem.position = location
 	add_child(new_gem)
